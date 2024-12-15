@@ -42,7 +42,8 @@ $conn->close();
     <title>Under My Guidance</title>
     <link rel="stylesheet" href="css/nutritionists_dashboard.css">
     <style>
-        /* Add your attractive CSS here */
+        /* Table Styling */
+
     </style>
 </head>
 <body>
