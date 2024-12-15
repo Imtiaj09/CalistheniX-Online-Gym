@@ -43,6 +43,60 @@ $conn->close();
     <link rel="stylesheet" href="css/nutritionists_dashboard.css">
     <style>
         /* Table Styling */
+        table {
+    padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid #ddd;
+}
+
+th {
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+
+/* Button Styling */
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Message Styling */
+p {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #4CAF50;
+    font-weight: bold;
+    margin: 1rem 0;
+} 
 
     </style>
 </head>
