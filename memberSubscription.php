@@ -26,6 +26,7 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,7 +52,8 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             margin-top: 20px;
         }
 
-        .subscription-table th, .subscription-table td {
+        .subscription-table th,
+        .subscription-table td {
             border: 1px solid #ddd;
             padding: 10px;
             text-align: center;
@@ -66,7 +68,7 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             background-color: #3498db;
         }
 
-       
+
 
         button.buy-btn {
             padding: 8px 12px;
@@ -76,10 +78,9 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             border-radius: 5px;
             cursor: pointer;
         }
-
-       
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -98,42 +99,43 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             </ul>
         </nav>
     </header>
-<main>
-    <h2>Choose a Subscription Plan</h2>
-    <table class="subscription-table">
-        <thead>
-            <tr>
-                <th>Plan Name</th>
-                <th>Details</th>
-                <th>Price (BDT)</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php if ($subscriptions->num_rows > 0) { ?>
-                <?php while ($row = $subscriptions->fetch_assoc()) { ?>
+    <main>
+        <h2>Choose a Subscription Plan</h2>
+        <table class="subscription-table">
+            <thead>
+                <tr>
+                    <th>Plan Name</th>
+                    <th>Details</th>
+                    <th>Price (BDT)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if ($subscriptions->num_rows > 0) { ?>
+                    <?php while ($row = $subscriptions->fetch_assoc()) { ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['plan_name']); ?></td>
+                            <td><?php echo htmlspecialchars($row['details']); ?></td>
+                            <td><?php echo htmlspecialchars($row['price']); ?></td>
+                            <td>
+                                <form action="buy_subscription.php" method="POST">
+                                    <input type="hidden" name="subscription_id" value="<?php echo $row['id']; ?>">
+                                    <button type="submit" class="buy-btn">Buy</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                <?php } else { ?>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['plan_name']); ?></td>
-                        <td><?php echo htmlspecialchars($row['details']); ?></td>
-                        <td><?php echo htmlspecialchars($row['price']); ?></td>
-                        <td>
-                            <form action="buy_subscription.php" method="POST">
-                                <input type="hidden" name="subscription_id" value="<?php echo $row['id']; ?>">
-                                <button type="submit" class="buy-btn">Buy</button>
-                            </form>
-                        </td>
+                        <td colspan="4">No subscription plans available.</td>
                     </tr>
                 <?php } ?>
-            <?php } else { ?>
-                <tr>
-                    <td colspan="4">No subscription plans available.</td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</main>
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

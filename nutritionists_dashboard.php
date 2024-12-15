@@ -39,12 +39,14 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutritionist Dashboard</title>
     <link rel="stylesheet" href="css/nutritionists_dashboard.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -93,4 +95,5 @@ $conn->close();
         <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
     </footer>
 </body>
+
 </html>

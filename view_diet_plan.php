@@ -35,6 +35,7 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,18 +44,19 @@ $conn->close();
 </head>
 <style>
     main {
-                max-width: 900px;
-                margin: 30px auto;
-                padding: 20px;
-                background-color: #0d0d0d;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
+        max-width: 900px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: #0d0d0d;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
 
-            h2 {
-                color: #fff;
-            }
-        </style>
+    h2 {
+        color: #fff;
+    }
+</style>
+
 <body>
     <header>
         <div class="logo">
@@ -89,8 +91,9 @@ $conn->close();
         <?php endif; ?>
     </main>
 
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

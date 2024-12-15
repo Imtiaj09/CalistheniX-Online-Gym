@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,7 +58,7 @@
 
         .btn {
             display: inline-block;
-            padding: 10px  2.5rem;
+            padding: 10px 2.5rem;
             background-color: black;
             color: white;
             text-decoration: none;
@@ -75,51 +76,52 @@
                 grid-template-columns: 1fr;
             }
         }
+
         /* end */
         /* Banner */
         .banner {
-    background-image: url('images/cover-image.jpg'); 
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+            background-image: url('images/cover-image.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
 
-.banner:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 128, 128, 0.6); 
-    z-index: 1;
-}
+        .banner:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 128, 128, 0.6);
+            z-index: 1;
+        }
 
-.banner-content {
-    position: relative;
-    z-index: 2;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
 
-.banner-content h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
+        .banner-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
 
-.banner-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
+        .banner-content p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
 
-.btn-content {
-    display: inline-block;
+        .btn-content {
+            display: inline-block;
             padding: 10px 2.5rem;
             background-color: black;
             color: white;
@@ -128,19 +130,21 @@
             font-size: 1rem;
             transition: background-color 0.3s ease;
             cursor: pointer;
-}
+        }
 
-.btn-content:hover {
-    background-color: #1abc9c;
-}
-/* end */
+        .btn-content:hover {
+            background-color: #1abc9c;
+        }
 
-/* Team */
-.team-section {
+        /* end */
+
+        /* Team */
+        .team-section {
             padding: 50px 20px;
         }
-        .team-h{
-           text-align: center;
+
+        .team-h {
+            text-align: center;
         }
 
         .team-section h2 {
@@ -214,6 +218,7 @@
             font-size: 1.2rem;
             text-decoration: none;
         }
+
         /* end */
 
         /* Contact Us */
@@ -277,166 +282,167 @@
         .form-container form button:hover {
             background-color: #555;
         }
-
     </style>
 </head>
+
 <body>
-<header>
-    <div class="logo">
-        <img src="images/CalistheniX.png" alt="Fitness Center Logo" class="logo-img">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="#about">Home</a></li>
-            <li class="dropdown">
-                <a href="#joinAs">JOIN AS</a>
-                <ul class="dropdown-menu">
-                    <li><a href="member_registration.php">Member</a></li>
-                    <li><a href="trainer_login.php">Trainer</a></li>
-                    <li><a href="nutritionist_login.php">Nutritionist</a></li>
-                </ul>
-            </li>
-            <li><a href="authority_login.php">Admin</a></li>
-        </ul>
-    </nav>
-</header>
-
-
-<main>
-    <!-- Banner -->
-    <section class="banner">
-        <div class="banner-content">
-            <h1>BUild Your Body</h1>
-            <p>
-                Helping You Adopt A More Healthy And Fit Lifestyle So You Look And Feel Your Best.
-            </p>
-            <a href="member_registration.php" class="btn-content">REGISTER NOW</a>
+    <header>
+        <div class="logo">
+            <img src="images/CalistheniX.png" alt="Fitness Center Logo" class="logo-img">
         </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a href="#about">Home</a></li>
+                <li class="dropdown">
+                    <a href="#joinAs">JOIN AS</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="member_registration.php">Member</a></li>
+                        <li><a href="trainer_login.php">Trainer</a></li>
+                        <li><a href="nutritionist_login.php">Nutritionist</a></li>
+                    </ul>
+                </li>
+                <li><a href="authority_login.php">Admin</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Discount Section -->
-    <section class="discount">
-        <h2>Special Offer</h2>
-        <p>Join today and get <strong>10% OFF</strong> on your first month!</p>
-        <a href="member_registration.php" class="btn">Claim Offer</a>
-    </section>
 
-
-    
-    <!-- Benefits -->
-    <section class="benefits">
-        <div class="image-container">
-            <img src="images/benefits-img.png" alt="Benefits Pose">
-        </div>
-        <div class="content">
-            <h1>The best way to increased flexibility and improve posture</h1>
-            <p>We will develop for you a unique nutrition program for weight loss and positive tone of the whole body</p>
-            <div class="stats">
-                <div class="stat">
-                    <h3>165+</h3>
-                    <p>Happy Customers</p>
-                </div>
-                <div class="stat">
-                    <h3>98%</h3>
-                    <p>Efficiency</p>
-                </div>
-                <div class="stat">
-                    <h3>12</h3>
-                    <p>Years of Experience</p>
-                </div>
-            </div>
-            <a href="" class="btn">Get Now</a>
-        </div>
-    </section>
-    <!-- Team -->
-    <section class="team-section">
-    <h2 class="team-h">Our Team</h2>
-    <div class="team-container">
-        <!-- Team Card 1 -->
-        <div class="team-card">
-            <img src="images/01.png" alt="Team 1">
-            <div class="info">
-                <h3>John Doe</h3>
-                <p>Yoga Team</p>
-                <div class="social-icons">
-                    <a href="#">&#xf09a;</a>
-                    <a href="#">&#xf099;</a>
-                    <a href="#">&#xf0e1;</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Team Card 2 -->
-        <section class="team-card">
-            <img src="images/02.png" alt="Team 2">
-            <div class="info">
-                <h3>Jane Smith</h3>
-                <p>Yoga Team</p>
-                <div class="social-icons">
-                    <a href="#">&#xf09a;</a>
-                    <a href="#">&#xf099;</a>
-                    <a href="#">&#xf0e1;</a>
-                </div>
+    <main>
+        <!-- Banner -->
+        <section class="banner">
+            <div class="banner-content">
+                <h1>BUild Your Body</h1>
+                <p>
+                    Helping You Adopt A More Healthy And Fit Lifestyle So You Look And Feel Your Best.
+                </p>
+                <a href="member_registration.php" class="btn-content">REGISTER NOW</a>
             </div>
         </section>
 
-        <!-- Team Card 3 -->
-        <div class="team-card">
-            <img src="https://via.placeholder.com/250x300" alt="Team 3">
-            <div class="info">
-                <h3>Emily Brown</h3>
-                <p>Yoga Team</p>
-                <div class="social-icons">
-                    <a href="#">&#xf09a;</a>
-                    <a href="#">&#xf099;</a>
-                    <a href="#">&#xf0e1;</a>
+        <!-- Discount Section -->
+        <section class="discount">
+            <h2>Special Offer</h2>
+            <p>Join today and get <strong>10% OFF</strong> on your first month!</p>
+            <a href="member_registration.php" class="btn">Claim Offer</a>
+        </section>
+
+
+
+        <!-- Benefits -->
+        <section class="benefits">
+            <div class="image-container">
+                <img src="images/benefits-img.png" alt="Benefits Pose">
+            </div>
+            <div class="content">
+                <h1>The best way to increased flexibility and improve posture</h1>
+                <p>We will develop for you a unique nutrition program for weight loss and positive tone of the whole body</p>
+                <div class="stats">
+                    <div class="stat">
+                        <h3>165+</h3>
+                        <p>Happy Customers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>98%</h3>
+                        <p>Efficiency</p>
+                    </div>
+                    <div class="stat">
+                        <h3>12</h3>
+                        <p>Years of Experience</p>
+                    </div>
+                </div>
+                <a href="" class="btn">Get Now</a>
+            </div>
+        </section>
+        <!-- Team -->
+        <section class="team-section">
+            <h2 class="team-h">Our Team</h2>
+            <div class="team-container">
+                <!-- Team Card 1 -->
+                <div class="team-card">
+                    <img src="images/01.png" alt="Team 1">
+                    <div class="info">
+                        <h3>John Doe</h3>
+                        <p>Yoga Team</p>
+                        <div class="social-icons">
+                            <a href="#">&#xf09a;</a>
+                            <a href="#">&#xf099;</a>
+                            <a href="#">&#xf0e1;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 2 -->
+                <section class="team-card">
+                    <img src="images/02.png" alt="Team 2">
+                    <div class="info">
+                        <h3>Jane Smith</h3>
+                        <p>Yoga Team</p>
+                        <div class="social-icons">
+                            <a href="#">&#xf09a;</a>
+                            <a href="#">&#xf099;</a>
+                            <a href="#">&#xf0e1;</a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Team Card 3 -->
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/250x300" alt="Team 3">
+                    <div class="info">
+                        <h3>Emily Brown</h3>
+                        <p>Yoga Team</p>
+                        <div class="social-icons">
+                            <a href="#">&#xf09a;</a>
+                            <a href="#">&#xf099;</a>
+                            <a href="#">&#xf0e1;</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Card 4 -->
+                <div class="team-card">
+                    <img src="images/03.png" alt="Team 4">
+                    <div class="info">
+                        <h3>Sophia White</h3>
+                        <p>Yoga Team</p>
+                        <div class="social-icons">
+                            <a href="#">&#xf09a;</a>
+                            <a href="#">&#xf099;</a>
+                            <a href="#">&#xf0e1;</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Team Card 4 -->
-        <div class="team-card">
-            <img src="images/03.png" alt="Team 4">
-            <div class="info">
-                <h3>Sophia White</h3>
-                <p>Yoga Team</p>
-                <div class="social-icons">
-                    <a href="#">&#xf09a;</a>
-                    <a href="#">&#xf099;</a>
-                    <a href="#">&#xf0e1;</a>
-                </div>
+        </section>
+        <!-- Contact -->
+        <section class="contact-section">
+            <div class="image-container">
+                <img src="images/contact-img.png" alt="Contact">
             </div>
-        </div>
-    </div>
-</section>
-    <!-- Contact -->
-    <section class="contact-section">
-        <div class="image-container">
-            <img src="images/contact-img.png" alt="Contact">
-        </div>
 
-        <div class="form-container">
-            <h2>GET IN TOUCH WITH US FOR ANY QUERIES.</h2>
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Phone Number" required>
-                <select required>
-                    <option value="" disabled selected>Your Phase</option>
-                    <option value="Beginner">Beginner</option>
-                    <option value="Intermediate">Intermediate</option>
-                    <option value="Advanced">Advanced</option>
-                </select>
-                <textarea placeholder="Message" required></textarea>
-                <button type="submit">SEND MESSAGE</button>
-            </form>
-        </div>
-    </section>
-</main>
+            <div class="form-container">
+                <h2>GET IN TOUCH WITH US FOR ANY QUERIES.</h2>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="text" placeholder="Phone Number" required>
+                    <select required>
+                        <option value="" disabled selected>Your Phase</option>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                    </select>
+                    <textarea placeholder="Message" required></textarea>
+                    <button type="submit">SEND MESSAGE</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> CalistheniX Fitness Center. All rights reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> CalistheniX Fitness Center. All rights reserved.</p>
+    </footer>
 
 </body>
+
 </html>

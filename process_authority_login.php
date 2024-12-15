@@ -49,8 +49,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: authority_login.php?error=No account found with that email");
         exit;
     }
-// Close connection
-$conn->close();
+    // Close connection
+    $conn->close();
 }
 
 ?>

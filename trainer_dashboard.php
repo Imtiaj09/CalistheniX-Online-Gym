@@ -30,7 +30,7 @@ $stmt->bind_param("i", $trainer_id);
 $stmt->execute();
 $result = $stmt->get_result();
 
-$trainer_name = "Trainer"; 
+$trainer_name = "Trainer";
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $trainer_name = $row['name'];
@@ -43,12 +43,14 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trainer Dashboard</title>
     <link rel="stylesheet" href="css/authoritydashboard.css">
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -86,4 +88,5 @@ $conn->close();
         <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
     </footer>
 </body>
+
 </html>

@@ -36,4 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['member_id'], $_POST['
     $stmt->close();
     $conn->close();
 }
-?>

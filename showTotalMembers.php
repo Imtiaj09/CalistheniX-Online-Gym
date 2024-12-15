@@ -67,6 +67,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['t
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,7 +89,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['t
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -119,6 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['t
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -134,26 +137,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['t
             </ul>
         </nav>
     </header>
-<main>
-    <h2>List of Members</h2>
-    <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Date of Birth</th>
-                <th>Assigned Trainer</th>
-                <th>Choose</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
+    <main>
+        <h2>List of Members</h2>
+        <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Date of Birth</th>
+                    <th>Assigned Trainer</th>
+                    <th>Choose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<tr>
                         <td>" . htmlspecialchars($row['member_id']) . "</td>
                         <td>" . htmlspecialchars($row['member_name']) . "</td>
                         <td>" . htmlspecialchars($row['member_email']) . "</td>
@@ -165,25 +168,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['t
                                 <input type='hidden' name='member_id' value='" . htmlspecialchars($row['member_id']) . "'>
                                 <select name='trainer_id'>
                                     <option value='' disabled selected>Select Trainer</option>";
-                                    foreach ($trainers as $trainer) {
-                                        $selected = $trainer['id'] == $row['trainer_id'] ? 'selected' : '';
-                                        echo "<option value='" . htmlspecialchars($trainer['id']) . "' $selected>" . htmlspecialchars($trainer['name']) . "</option>";
-                                    }
-                    echo "</select>
+                        foreach ($trainers as $trainer) {
+                            $selected = $trainer['id'] == $row['trainer_id'] ? 'selected' : '';
+                            echo "<option value='" . htmlspecialchars($trainer['id']) . "' $selected>" . htmlspecialchars($trainer['name']) . "</option>";
+                        }
+                        echo "</select>
                                 <button type='submit'>Update</button>
                             </form>
                         </td>
                     </tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='7'>No members found.</td></tr>";
                 }
-            } else {
-                echo "<tr><td colspan='7'>No members found.</td></tr>";
-            }
-            ?>
-        </tbody>
-    </table>
-</main>
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+                ?>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

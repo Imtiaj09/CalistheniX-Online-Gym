@@ -44,6 +44,7 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +70,9 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             font-weight: bold;
         }
 
-        input, textarea, select {
+        input,
+        textarea,
+        select {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -96,7 +99,8 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -122,6 +126,7 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -137,57 +142,58 @@ $subscriptions = $conn->query("SELECT * FROM subscriptions");
             </ul>
         </nav>
     </header>
-<main>
-    <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
-    <form method="POST" action="">
-        <label for="plan_name">Subscription Plan Name:</label>
-        <select id="plan_name" name="plan_name" required>
-            <option value="1 Month">1 Month</option>
-            <option value="3 Months">3 Months</option>
-            <option value="6 Months">6 Months</option>
-            <option value="12 Months">12 Months</option>
-        </select>
+    <main>
+        <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
+        <form method="POST" action="">
+            <label for="plan_name">Subscription Plan Name:</label>
+            <select id="plan_name" name="plan_name" required>
+                <option value="1 Month">1 Month</option>
+                <option value="3 Months">3 Months</option>
+                <option value="6 Months">6 Months</option>
+                <option value="12 Months">12 Months</option>
+            </select>
 
-        <label for="details">Subscription Details:</label>
-        <textarea id="details" name="details" rows="4" required></textarea>
+            <label for="details">Subscription Details:</label>
+            <textarea id="details" name="details" rows="4" required></textarea>
 
-        <label for="price">Price (in BDT):</label>
-        <input type="number" id="price" name="price" step="0.01" required>
+            <label for="price">Price (in BDT):</label>
+            <input type="number" id="price" name="price" step="0.01" required>
 
-        <button type="submit">Save Plan</button>
-    </form>
+            <button type="submit">Save Plan</button>
+        </form>
 
-    <h2>Current Subscription Plans</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Plan Name</th>
-                <th>Details</th>
-                <th>Price (BDT)</th>
-                <th>Last Updated</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php while ($row = $subscriptions->fetch_assoc()) { ?>
+        <h2>Current Subscription Plans</h2>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo htmlspecialchars($row['plan_name']); ?></td>
-                    <td><?php echo htmlspecialchars($row['details']); ?></td>
-                    <td><?php echo htmlspecialchars($row['price']); ?></td>
-                    <td><?php echo htmlspecialchars($row['updated_at']); ?></td>
-                    <td>
-                        <form action="edit_subscription_authority.php" method="GET" style="display:inline;">
-                            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
-                            <button type="submit" class="edit-btn">Edit</button>
-                        </form>
-                    </td>
+                    <th>Plan Name</th>
+                    <th>Details</th>
+                    <th>Price (BDT)</th>
+                    <th>Last Updated</th>
+                    <th>Actions</th>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
-</main>
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+            </thead>
+            <tbody>
+                <?php while ($row = $subscriptions->fetch_assoc()) { ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($row['plan_name']); ?></td>
+                        <td><?php echo htmlspecialchars($row['details']); ?></td>
+                        <td><?php echo htmlspecialchars($row['price']); ?></td>
+                        <td><?php echo htmlspecialchars($row['updated_at']); ?></td>
+                        <td>
+                            <form action="edit_subscription_authority.php" method="GET" style="display:inline;">
+                                <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+                                <button type="submit" class="edit-btn">Edit</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </main>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

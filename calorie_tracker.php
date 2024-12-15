@@ -65,14 +65,13 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calorie Tracker</title>
+    <title>Calorie Tracker | Fitness</title>
     <link rel="stylesheet" href="css/member_dashboard.css">
     <style>
-
-
         main {
             max-width: 900px;
             margin: 30px auto;
@@ -99,7 +98,8 @@ $conn->close();
             color: #333;
         }
 
-        input[type="text"], input[type="number"] {
+        input[type="text"],
+        input[type="number"] {
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
@@ -133,11 +133,14 @@ $conn->close();
             margin-top: 20px;
         }
 
-        table, th, td {
+        table,
+        th,
+        td {
             border: 1px solid #ddd;
         }
 
-        th, td {
+        th,
+        td {
             padding: 10px;
             text-align: center;
         }
@@ -148,6 +151,7 @@ $conn->close();
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -166,71 +170,72 @@ $conn->close();
             </ul>
         </nav>
     </header>
-<main>
-    <h2>Track Your Daily Nutrition</h2>
-    <form method="POST">
-        <label for="item_name">Food/Drink Name:</label>
-        <input type="text" id="item_name" name="item_name" required>
+    <main>
+        <h2>Track Your Daily Nutrition</h2>
+        <form method="POST">
+            <label for="item_name">Food/Drink Name:</label>
+            <input type="text" id="item_name" name="item_name" required>
 
-        <label for="protein">Protein (g):</label>
-        <input type="number" id="protein" name="protein" step="0.01" required>
+            <label for="protein">Protein (g):</label>
+            <input type="number" id="protein" name="protein" step="0.01" required>
 
-        <label for="carbs">Carbohydrates (g):</label>
-        <input type="number" id="carbs" name="carbs" step="0.01" required>
+            <label for="carbs">Carbohydrates (g):</label>
+            <input type="number" id="carbs" name="carbs" step="0.01" required>
 
-        <label for="fat">Fat (g):</label>
-        <input type="number" id="fat" name="fat" step="0.01" required>
+            <label for="fat">Fat (g):</label>
+            <input type="number" id="fat" name="fat" step="0.01" required>
 
-        <label for="calories">Calories (kcal):</label>
-        <input type="number" id="calories" name="calories" step="0.01" required>
+            <label for="calories">Calories (kcal):</label>
+            <input type="number" id="calories" name="calories" step="0.01" required>
 
-        <label for="water">Water (L):</label>
-        <input type="number" id="water" name="water" step="0.01">
+            <label for="water">Water (L):</label>
+            <input type="number" id="water" name="water" step="0.01">
 
-        <button type="submit" name="log_item">Log Item</button>
-    </form>
+            <button type="submit" name="log_item">Log Item</button>
+        </form>
 
-    <?php if (isset($message)) echo "<p class='result'>$message</p>"; ?>
-    <h3>Today's Logs</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Protein (g)</th>
-                <th>Carbs (g)</th>
-                <th>Fat (g)</th>
-                <th>Calories (kcal)</th>
-                <th>Water (L)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($logs as $log): ?>
+        <?php if (isset($message)) echo "<p class='result'>$message</p>"; ?>
+        <h3>Today's Logs</h3>
+        <table>
+            <thead>
                 <tr>
-                    <td><?= htmlspecialchars($log['item_name']); ?></td>
-                    <td><?= $log['protein']; ?></td>
-                    <td><?= $log['carbs']; ?></td>
-                    <td><?= $log['fat']; ?></td>
-                    <td><?= $log['calories']; ?></td>
-                    <td><?= $log['water']; ?></td>
+                    <th>Item</th>
+                    <th>Protein (g)</th>
+                    <th>Carbs (g)</th>
+                    <th>Fat (g)</th>
+                    <th>Calories (kcal)</th>
+                    <th>Water (L)</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Total</th>
-                <th><?= $total_protein; ?> g</th>
-                <th><?= $total_carbs; ?> g</th>
-                <th><?= $total_fat; ?> g</th>
-                <th><?= $total_calories; ?> kcal</th>
-                <th><?= $total_water; ?> L</th>
-            </tr>
-        </tfoot>
-    </table>
-</main>
-<h2>      .              </h2>
-<h2>      .              </h2>
-<footer>
-    <p>&copy; <?= date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+            </thead>
+            <tbody>
+                <?php foreach ($logs as $log): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($log['item_name']); ?></td>
+                        <td><?= $log['protein']; ?></td>
+                        <td><?= $log['carbs']; ?></td>
+                        <td><?= $log['fat']; ?></td>
+                        <td><?= $log['calories']; ?></td>
+                        <td><?= $log['water']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Total</th>
+                    <th><?= $total_protein; ?> g</th>
+                    <th><?= $total_carbs; ?> g</th>
+                    <th><?= $total_fat; ?> g</th>
+                    <th><?= $total_calories; ?> kcal</th>
+                    <th><?= $total_water; ?> L</th>
+                </tr>
+            </tfoot>
+        </table>
+    </main>
+    <h2> . </h2>
+    <h2> . </h2>
+    <footer>
+        <p>&copy; <?= date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

@@ -41,4 +41,3 @@ $conn->close();
 
 header("Location: nutritionists_list.php?success=Nutritionist selected successfully.");
 exit;
-?>

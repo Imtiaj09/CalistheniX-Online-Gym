@@ -28,15 +28,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['member_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trainer Dashboard</title>
     <link rel="stylesheet" href="css/trainer_dashboard.css">
     <style>
-       /* Fill it */
+        /* Fill it */
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -51,17 +53,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['member_id'])) {
             </ul>
         </nav>
     </header>
-<body>
-    <h1>Assign Exercise Plan</h1>
-    <form action="save_plan.php" method="POST">
-        <input type="hidden" name="member_id" value="<?php echo htmlspecialchars($member_id); ?>">
-        <textarea name="plan" rows="10" cols="50" placeholder="Write the exercise plan here..." required></textarea>
-        <button type="submit">Save Plan</button>
-    </form>
+
+    <body>
+        <h1>Assign Exercise Plan</h1>
+        <form action="save_plan.php" method="POST">
+            <input type="hidden" name="member_id" value="<?php echo htmlspecialchars($member_id); ?>">
+            <textarea name="plan" rows="10" cols="50" placeholder="Write the exercise plan here..." required></textarea>
+            <button type="submit">Save Plan</button>
+        </form>
 
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-    </footer>
-</body>
+        <footer>
+            <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+        </footer>
+    </body>
+
 </html>

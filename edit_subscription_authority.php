@@ -56,14 +56,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Subscription</title>
     <link rel="stylesheet" href="css/authoritydashboard.css">
     <style>
-
-
         form {
             display: flex;
             flex-direction: column;
@@ -76,7 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             color: #333;
         }
 
-        input, textarea {
+        input,
+        textarea {
             font-size: 14px;
             padding: 10px;
             margin-bottom: 15px;
@@ -85,7 +85,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             width: 100%;
         }
 
-        input:focus, textarea:focus {
+        input:focus,
+        textarea:focus {
             border-color: #3498db;
             outline: none;
             box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
@@ -119,6 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 </head>
+
 <body>
     <header>
         <div class="logo">
@@ -133,25 +135,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </ul>
         </nav>
     </header>
-<main>
-    <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
-    <form method="POST" action="">
-        <input type="hidden" name="id" value="<?php echo $subscription['id']; ?>">
+    <main>
+        <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
+        <form method="POST" action="">
+            <input type="hidden" name="id" value="<?php echo $subscription['id']; ?>">
 
-        <label for="plan_name">Subscription Plan Name:</label>
-        <input type="text" id="plan_name" name="plan_name" value="<?php echo htmlspecialchars($subscription['plan_name']); ?>" required>
+            <label for="plan_name">Subscription Plan Name:</label>
+            <input type="text" id="plan_name" name="plan_name" value="<?php echo htmlspecialchars($subscription['plan_name']); ?>" required>
 
-        <label for="details">Subscription Details:</label>
-        <textarea id="details" name="details" rows="4" required><?php echo htmlspecialchars($subscription['details']); ?></textarea>
+            <label for="details">Subscription Details:</label>
+            <textarea id="details" name="details" rows="4" required><?php echo htmlspecialchars($subscription['details']); ?></textarea>
 
-        <label for="price">Price (in BDT):</label>
-        <input type="number" id="price" name="price" step="0.01" value="<?php echo htmlspecialchars($subscription['price']); ?>" required>
+            <label for="price">Price (in BDT):</label>
+            <input type="number" id="price" name="price" step="0.01" value="<?php echo htmlspecialchars($subscription['price']); ?>" required>
 
-        <button type="submit">Update Plan</button>
-    </form>
-</main>
-<footer>
-    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-</footer>
+            <button type="submit">Update Plan</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

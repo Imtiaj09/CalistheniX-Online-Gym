@@ -64,6 +64,7 @@ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,8 +72,8 @@ $conn->close();
     <link rel="stylesheet" href="css/member_dashboard.css">
 </head>
 <style>
-/* Table Styling */
-table {
+    /* Table Styling */
+    table {
         width: 80%;
         border-collapse: collapse;
         margin: 2rem 0;
@@ -85,7 +86,8 @@ table {
         color: white;
     }
 
-    th, td {
+    th,
+    td {
         text-align: center;
         padding: 1rem;
         border: 1px solid black;
@@ -96,11 +98,11 @@ table {
     }
 
     tr:nth-child(even) {
-        background-color: #b2b9f1 ;
+        background-color: #b2b9f1;
     }
 
     tr:hover {
-        background-color: #b2b9f1 ;
+        background-color: #b2b9f1;
         cursor: pointer;
     }
 
@@ -127,8 +129,9 @@ table {
         color: #4CAF50;
         font-weight: bold;
         margin: 1rem 0;
-    } 
+    }
 </style>
+
 <body>
     <header>
         <div class="logo">
@@ -151,55 +154,56 @@ table {
         <?php if (isset($message)) echo "<p>$message</p>"; ?>
 
         <?php if ($chosenNutritionist): ?>
-        <h2>Your Nutritionist</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>View Plan</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><?php echo htmlspecialchars($chosenNutritionist['name']); ?></td>
-                    <td><?php echo htmlspecialchars($chosenNutritionist['email']); ?></td>
-                    <td>
-                        <form action="view_diet_plan.php" method="POST">
-                            <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
-                            <input type="hidden" name="nutritionist_id" value="<?php echo $chosenNutritionist['id']; ?>">
-                            <button type="submit">View Plan</button>
-                        </form>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <?php else: ?>
-        <h2>Available Nutritionists</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php while ($row = $result->fetch_assoc()): ?>
+            <h2>Your Nutritionist</h2>
+            <table>
+                <thead>
                     <tr>
-                        <td><?php echo htmlspecialchars($row['name']); ?></td>
-                        <td><?php echo htmlspecialchars($row['email']); ?></td>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>View Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><?php echo htmlspecialchars($chosenNutritionist['name']); ?></td>
+                        <td><?php echo htmlspecialchars($chosenNutritionist['email']); ?></td>
                         <td>
-                            <form method="POST">
-                                <input type="hidden" name="nutritionist_id" value="<?php echo $row['id']; ?>">
-                                <button type="submit">Choose</button>
+                            <form action="view_diet_plan.php" method="POST">
+                                <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
+                                <input type="hidden" name="nutritionist_id" value="<?php echo $chosenNutritionist['id']; ?>">
+                                <button type="submit">View Plan</button>
                             </form>
                         </td>
                     </tr>
-                <?php endwhile; ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        <?php else: ?>
+            <h2>Available Nutritionists</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo htmlspecialchars($row['name']); ?></td>
+                            <td><?php echo htmlspecialchars($row['email']); ?></td>
+                            <td>
+                                <form method="POST">
+                                    <input type="hidden" name="nutritionist_id" value="<?php echo $row['id']; ?>">
+                                    <button type="submit">Choose</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endwhile; ?>
+                </tbody>
+            </table>
         <?php endif; ?>
     </main>
 </body>
+
 </html>
