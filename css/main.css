@@ -1,0 +1,125 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(90deg, #383737, #3f3c3a);
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    width: 150px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s;
+    padding: 5px 10px;
+}
+
+nav ul li a:hover {
+    color: #000;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    top: 100%;
+    left: 0;
+    padding: 10px 0;
+    list-style: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    padding: 10px 20px;
+    display: block;
+    color: #333;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+
+
+/* Discount Section */
+.discount {
+    text-align: center;
+    background: linear-gradient(90deg, #ff6600, #ff4500);
+    color: #fff;
+    padding: 50px 20px;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.discount h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.discount p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.discount .btn {
+    background-color: #fff;
+    color: #ff4500;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 30px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.discount .btn:hover {
+    background-color: #ff6600;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(90deg, #ff6600, #ff8c1a);
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+}
