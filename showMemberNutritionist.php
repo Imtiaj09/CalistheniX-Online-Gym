@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -67,11 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['n
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Members | Under Nutritionist</title>
+    <title>Manage Members</title>
     <link rel="stylesheet" href="css/authoritydashboard.css">
     <style>
         main {
@@ -89,8 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['n
             margin-top: 20px;
         }
 
-        th,
-        td {
+        th, td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
@@ -121,7 +120,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['n
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -137,26 +135,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['n
             </ul>
         </nav>
     </header>
-    <main>
-        <h2>List of Members and Nutritionists</h2>
-        <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Date of Birth</th>
-                    <th>Assigned Nutritionist</th>
-                    <th>Choose Nutritionist</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>
+<main>
+    <h2>List of Members and Nutritionists</h2>
+    <?php if (isset($message)) echo "<p class='message'>$message</p>"; ?>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Date of Birth</th>
+                <th>Assigned Nutritionist</th>
+                <th>Choose Nutritionist</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<tr>
                         <td>" . htmlspecialchars($row['member_id']) . "</td>
                         <td>" . htmlspecialchars($row['member_name']) . "</td>
                         <td>" . htmlspecialchars($row['member_email']) . "</td>
@@ -168,26 +166,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['member_id'], $_POST['n
                                 <input type='hidden' name='member_id' value='" . htmlspecialchars($row['member_id']) . "'>
                                 <select name='nutritionist_id'>
                                     <option value='' disabled selected>Select Nutritionist</option>";
-                        foreach ($nutritionists as $nutritionist) {
-                            $selected = $nutritionist['id'] == $row['nutritionist_id'] ? 'selected' : '';
-                            echo "<option value='" . htmlspecialchars($nutritionist['id']) . "' $selected>" . htmlspecialchars($nutritionist['name']) . "</option>";
-                        }
-                        echo "</select>
+                                    foreach ($nutritionists as $nutritionist) {
+                                        $selected = $nutritionist['id'] == $row['nutritionist_id'] ? 'selected' : '';
+                                        echo "<option value='" . htmlspecialchars($nutritionist['id']) . "' $selected>" . htmlspecialchars($nutritionist['name']) . "</option>";
+                                    }
+                    echo "</select>
                                 <button type='submit'>Update</button>
                             </form>
                         </td>
                     </tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='7'>No members found.</td></tr>";
                 }
-                ?>
-            </tbody>
-        </table>
-    </main>
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-    </footer>
+            } else {
+                echo "<tr><td colspan='7'>No members found.</td></tr>";
+            }
+            ?>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+</footer>
 </body>
-
 </html>

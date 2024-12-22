@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -65,74 +66,12 @@ $conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trainer List</title>
-    <link rel="stylesheet" href="css/authoritydashboard.css">
+    <link rel="stylesheet" href="css/trainer_list.css">
 </head>
-<style>
-    /* Table Styling */
-    table {
-        width: 80%;
-        border-collapse: collapse;
-        margin: 2rem 0;
-        background-color: #ffffff;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    thead {
-        background-color: #4CAF50;
-        color: white;
-    }
-
-    th,
-    td {
-        text-align: center;
-        padding: 1rem;
-        border: 1px solid #ddd;
-    }
-
-    th {
-        font-weight: bold;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #eaf8e6;
-        cursor: pointer;
-    }
-
-    /* Button Styling */
-    button {
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
-        cursor: pointer;
-        border-radius: 4px;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-        background-color: #45a049;
-    }
-
-    /* Message Styling */
-    p {
-        text-align: center;
-        font-size: 1.2rem;
-        color: #4CAF50;
-        font-weight: bold;
-        margin: 1rem 0;
-    }
-</style>
-
 <body>
     <header>
         <div class="logo">
@@ -155,65 +94,64 @@ $conn->close();
         <?php if (isset($message)) echo "<p>$message</p>"; ?>
 
         <?php if ($chosenTrainer): ?>
-            <h2>Your Trainer</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>View Plan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><?php echo htmlspecialchars($chosenTrainer['name']); ?></td>
-                        <td><?php echo htmlspecialchars($chosenTrainer['email']); ?></td>
-                        <td>
-                            <form action="view_plan.php" method="POST">
-                                <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
-                                <input type="hidden" name="trainer_id" value="<?php echo $chosenTrainer['id']; ?>">
-                                <button type="submit">View Plan</button>
-                            </form>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        <?php else: ?>
-            <h2>Available Trainers</h2>
-            <table border="1">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Action</th>
-                        <th>View Plan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($row['name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['email']); ?></td>
-                            <td>
-                                <form method="POST">
-                                    <input type="hidden" name="trainer_id" value="<?php echo $row['id']; ?>">
-                                    <button type="submit">Choose</button>
-                                </form>
-                            </td>
-                            <td>
-                                <form action="view_plan.php" method="POST">
-                                    <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
-                                    <input type="hidden" name="trainer_id" value="<?php echo $row['id']; ?>">
-                                    <button type="submit">View Plan</button>
-                                </form>
-                            </td>
-                        </tr>
-                    <?php endwhile; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
+    <h2>Your Trainer</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>View Plan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><?php echo htmlspecialchars($chosenTrainer['name']); ?></td>
+                <td><?php echo htmlspecialchars($chosenTrainer['email']); ?></td>
+                <td>
+                    <form action="view_plan.php" method="POST">
+                        <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
+                        <input type="hidden" name="trainer_id" value="<?php echo $chosenTrainer['id']; ?>">
+                        <button type="submit">View Plan</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<?php else: ?>
+    <h2>Available Trainers</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+                <th>View Plan</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo htmlspecialchars($row['name']); ?></td>
+                    <td><?php echo htmlspecialchars($row['email']); ?></td>
+                    <td>
+                        <form method="POST">
+                            <input type="hidden" name="trainer_id" value="<?php echo $row['id']; ?>">
+                            <button type="submit">Choose</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="view_plan.php" method="POST">
+                            <input type="hidden" name="member_id" value="<?php echo $member_id; ?>">
+                            <input type="hidden" name="trainer_id" value="<?php echo $row['id']; ?>">
+                            <button type="submit">View Plan</button>
+                        </form>
+                    </td>
+                </tr>
+            <?php endwhile; ?>
+        </tbody>
+    </table>
+<?php endif; ?>
 
     </main>
 </body>
-
 </html>

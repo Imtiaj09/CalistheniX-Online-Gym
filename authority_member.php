@@ -8,14 +8,12 @@ if (!isset($_SESSION['authority_id'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authority Member</title>
     <link rel="stylesheet" href="css/authoritydashboard.css">
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -54,5 +52,4 @@ if (!isset($_SESSION['authority_id'])) {
         <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
     </footer>
 </body>
-
 </html>

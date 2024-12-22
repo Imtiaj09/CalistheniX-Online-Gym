@@ -35,28 +35,12 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Diet Plan</title>
-    <link rel="stylesheet" href="css/member_dashboard.css">
+    <link rel="stylesheet" href="css/view_diet_plan.css">
 </head>
-<style>
-    main {
-        max-width: 900px;
-        margin: 30px auto;
-        padding: 20px;
-        background-color: #0d0d0d;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    h2 {
-        color: #fff;
-    }
-</style>
-
 <body>
     <header>
         <div class="logo">
@@ -80,7 +64,7 @@ $conn->close();
         <?php if ($result->num_rows > 0): ?>
             <?php while ($row = $result->fetch_assoc()): ?>
                 <div>
-                    <h2>Plan Assigned By: <?php echo htmlspecialchars($row['nutritionist_name']); ?></h2>
+                    <h2>Plan Assigned By your Nutritionist: <?php echo htmlspecialchars($row['nutritionist_name']); ?></h2>
                     <p><?php echo nl2br(htmlspecialchars($row['plan'])); ?></p>
                     <small>Assigned on: <?php echo htmlspecialchars($row['created_at']); ?></small>
                 </div>
@@ -91,9 +75,8 @@ $conn->close();
         <?php endif; ?>
     </main>
 
-    <footer>
-        <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
-    </footer>
+<footer>
+    <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
+</footer>
 </body>
-
 </html>

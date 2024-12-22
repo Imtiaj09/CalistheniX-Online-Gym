@@ -14,7 +14,6 @@ $member_name = isset($_SESSION['member_name']) ? $_SESSION['member_name'] : "Mem
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +28,6 @@ $member_name = isset($_SESSION['member_name']) ? $_SESSION['member_name'] : "Mem
             background-position: center;
             color: #ffffff;
         }
-
         main {
             background: rgba(0, 0, 0, 0.7);
             padding: 20px;
@@ -39,7 +37,6 @@ $member_name = isset($_SESSION['member_name']) ? $_SESSION['member_name'] : "Mem
         }
     </style>
 </head>
-
 <body>
     <header>
         <div class="logo">
@@ -79,5 +76,4 @@ $member_name = isset($_SESSION['member_name']) ? $_SESSION['member_name'] : "Mem
         <p>&copy; <?php echo date("Y"); ?> Fitness Center. All rights reserved.</p>
     </footer>
 </body>
-
 </html>
